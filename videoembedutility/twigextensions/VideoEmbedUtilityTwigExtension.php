@@ -97,7 +97,8 @@
 						unset($options['height']);
 					}
 					
-					$url .= '?' . http_build_query($options);
+					$url .= (strpos($url, '?')) ? '&' : '?';
+					$url .= http_build_query($options);
 				}
 				
 				$originalPath = craft()->path->getTemplatesPath();
